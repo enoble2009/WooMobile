@@ -9,18 +9,25 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { WooUserService } from './woo-user.service';
+import { HttpModule } from '@angular/http';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule, 
+    HttpModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    WooUserService,
+    NativeStorage
   ],
   bootstrap: [AppComponent]
 })
