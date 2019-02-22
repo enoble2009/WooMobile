@@ -3,36 +3,24 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      Lista de productos
-    </ion-title>
+    <ion-title>Confirmación de carro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-tabs>
-    <!-- Tab bar -->
-    <ion-tab-bar slot="top">
-      <ion-tab-button (click)="updateCategories()">
-        Todos
-      </ion-tab-button>
-      <ion-tab-button *ngFor="let cat of categories" (click)="updateCategories(cat)">
-        {{cat.name}}
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-
+	
   <ion-list>
-    <ion-item *ngFor="let item of filterByShowFlag">
-      <ion-img [src]="item.image" slot="start"></ion-img>
+    <ion-item *ngFor="let item of currentCart.products | keyvalue">
+      <ion-img [src]="item.value.image" slot="start"></ion-img>
       {{item.name}}
-      <div class="item-quantity" slot="end" (click)="cart(item)">
-        <p class="quantity-value" *ngIf="item.quantity > 0">{{item.quantity == 0? "": item.quantity}}</p>
-        <p class="price-value" *ngIf="item.quantity > 0">${{item.quantity == 0? "": item.quantity*item.price}}</p>
+      <div class="item-quantity" slot="end" (click)="cart(item.value)">
+        <p class="quantity-value" *ngIf="item.value.quantity > 0">{{item.value.quantity == 0? "": item.value.quantity}}</p>
+        <p class="price-value" *ngIf="item.value.quantity > 0">${{item.value.quantity == 0? "": item.value.quantity*item.value.price}}</p>
         <ion-icon name="basket"></ion-icon>
       </div>
     </ion-item>
   </ion-list>
+
 
   <div class="back-modal" *ngIf="showAddCartModal">
     <div class="modal">
@@ -50,8 +38,13 @@
     </div>
   </div>
 
-  <ion-button *ngIf="cartTotal > 0" class="confirm-cart" shape="round" (click)="confirmCart()">
-    <span>${{cartTotal}}</span>
+  <ion-button *ngIf="currentCart.cartTotal > 0" class="confirm-cart" shape="round" (click)="confirmCart()">
+    <span>${{currentCart.cartTotal}}</span>
     <ion-icon name="checkmark"></ion-icon>
   </ion-button>
+
+  <ion-button class="cancel-cart" shape="round" (click)="cancelCart()">
+    <ion-icon name="arrow-back"></ion-icon>
+  </ion-button>
+
 </ion-content>

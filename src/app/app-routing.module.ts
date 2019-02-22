@@ -14,7 +14,12 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
-  },  { path: 'login', loadChildren: './login/login.module#LoginPageModule' }
+  },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+  { path: 'confirm-cart', loadChildren: './confirm-cart/confirm-cart.module#ConfirmCartPageModule' },
+  { path: 'confirm-userinfo', loadChildren: './confirm-userinfo/confirm-userinfo.module#ConfirmUserinfoPageModule' },  { path: 'final-confirmation', loadChildren: './final-confirmation/final-confirmation.module#FinalConfirmationPageModule' }
+
 
 ];
 

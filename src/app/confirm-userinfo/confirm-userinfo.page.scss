@@ -1,5 +1,4 @@
 ion-list {
-  margin-top: 60px;
   ion-item ion-img.hydrated {
     margin-right: 20px;
     height: 40px;
@@ -47,13 +46,25 @@ div.item-quantity {
   }
 }
 
-ion-button.confirm-cart {
+ion-button.cancel-userinfo {
+  left: 20px;
+  ion-icon {
+    bottom: 20px;
+  }
+}
+ion-button.confirm-userinfo {
+  right: 20px;
+  ion-icon {
+    bottom: 20px;
+  }
+}
+
+ion-button.cancel-userinfo, ion-button.confirm-userinfo {
   min-width: 70px;
   min-height: 70px;
   margin: 0 auto;
   position: fixed;
   bottom: 20px;
-  right: 20px;
   display: flex;
   button {
   	--padding-start: 5px;
@@ -67,6 +78,5 @@ ion-button.confirm-cart {
   ion-icon {
   	font-size: 30px;
   	position: absolute;
-    bottom: 14px;
   }
 }

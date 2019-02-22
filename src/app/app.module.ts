@@ -11,16 +11,21 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { WooUserService } from './woo-user.service';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { AddCartComponent } from './modals/add-cart/add-cart.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, AddCartComponent],
+  entryComponents: [AddCartComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule, 
-    HttpModule
+    HttpModule,
+    OAuthModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
     StatusBar,

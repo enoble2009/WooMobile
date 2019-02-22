@@ -21,6 +21,12 @@ export class WooUserService {
 	  });
   }
 
+  register(user_data, token){
+    let header : Headers = new Headers();
+    header.append('Authorization','Bearer ' + token);
+    return this.http.post(environment.wordpressApiUrl + 'users', user_data, {headers: header});
+  }
+
   setUser(user) {
     return this.nativeStorage.setItem('loginUser', user).then(
       () => console.log('Stored item!'),
@@ -29,17 +35,22 @@ export class WooUserService {
   }
 
   getUser(){
-    return this.nativeStorage.getItem('User');
+    return this.nativeStorage.getItem('loginUser');
   }
 
   validateLogin(token) {
     let header : Headers = new Headers();
-    header.append('Authorization','Basic ' + token);
+    header.append('Authorization','Bearer ' + token);
 
     return this.http.post(environment.wordpressUrl 
         + 'wp-json/jwt-auth/v1/token/validate?token=' 
         + token,
       {}, {headers: header});
+  }
+
+  loadUserInfo(user) {
+    return this.http.get(
+      environment.woocommerceUrl + 'customers/' + user.email);
   }
 
   logout(){

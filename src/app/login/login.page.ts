@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { WooUserService } from '../woo-user.service';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { HomePage } from '../home/home.page';
 import { Router } from '@angular/router';
+import { HomePage } from '../home/home.page';
 
 @Component({
   selector: 'app-login',
@@ -30,6 +30,14 @@ export class LoginPage implements OnInit {
   }
 
 	ionViewWillLoad() {
+  }
+
+  skipLogin() {
+    this.router.navigateByUrl('home');
+  }
+
+  goToRegister() {
+    this.router.navigateByUrl('register');
   }
 
 	login(value) {
