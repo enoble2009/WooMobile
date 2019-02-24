@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { ReactiveFormsModule , FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ConfirmUserinfoPage } from './confirm-userinfo.page';
+import { BuySuccessPage } from './buy-success.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ConfirmUserinfoPage
+    component: BuySuccessPage
   }
 ];
 
@@ -19,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ConfirmUserinfoPage]
+  declarations: [BuySuccessPage]
 })
-export class ConfirmUserinfoPageModule {}
+export class BuySuccessPageModule {}

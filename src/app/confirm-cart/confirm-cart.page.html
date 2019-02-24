@@ -12,7 +12,7 @@
   <ion-list>
     <ion-item *ngFor="let item of currentCart.products | keyvalue">
       <ion-img [src]="item.value.image" slot="start"></ion-img>
-      {{item.name}}
+      {{item.value.name}}
       <div class="item-quantity" slot="end" (click)="cart(item.value)">
         <p class="quantity-value" *ngIf="item.value.quantity > 0">{{item.value.quantity == 0? "": item.value.quantity}}</p>
         <p class="price-value" *ngIf="item.value.quantity > 0">${{item.value.quantity == 0? "": item.value.quantity*item.value.price}}</p>

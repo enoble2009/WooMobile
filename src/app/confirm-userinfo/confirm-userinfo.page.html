@@ -9,39 +9,35 @@
 	<ion-list>
 	  <ion-item>
 	    <ion-label>Nombre</ion-label>
-	    <ion-input></ion-input>
+	    <ion-input [(ngModel)]="userInfo.name"></ion-input>
 	  </ion-item>
 	  <ion-item>
 	    <ion-label>Apellido</ion-label>
-	    <ion-input></ion-input>
+	    <ion-input [(ngModel)]="userInfo.lastname"></ion-input>
 	  </ion-item>
 	  <ion-item>
 	    <ion-label>Address</ion-label>
-	    <ion-input></ion-input>
+	    <ion-input [(ngModel)]="userInfo.address"></ion-input>
 	  </ion-item>
 	  <ion-item>
 	    <ion-label>City</ion-label>
-	    <ion-input></ion-input>
+	    <ion-input [(ngModel)]="userInfo.city"></ion-input>
 	  </ion-item>
 	  <ion-item>
 	    <ion-label>State</ion-label>
-	    <ion-input></ion-input>
+	    <ion-input [(ngModel)]="userInfo.state"></ion-input>
 	  </ion-item>
 	  <ion-item>
 	    <ion-label>PostCode</ion-label>
-	    <ion-input></ion-input>
+	    <ion-input [(ngModel)]="userInfo.postcode"></ion-input>
 	  </ion-item>
 	  <ion-item>
 	    <ion-label>Country</ion-label>
-	    <ion-input></ion-input>
-	  </ion-item>
-	  <ion-item>
-	    <ion-label>Phone</ion-label>
-	    <ion-input></ion-input>
+	    <ion-input [(ngModel)]="userInfo.country"></ion-input>
 	  </ion-item>
 	</ion-list>
 
-  <ion-button *ngIf="userInfoOK" class="confirm-userinfo" shape="round" (click)="finalConfirmation()">
+  <ion-button class="confirm-userinfo" shape="round" (click)="finalConfirmation()">
     <ion-icon name="checkmark"></ion-icon>
   </ion-button>
 

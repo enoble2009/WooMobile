@@ -21,6 +21,16 @@ export class WooUserService {
 	  });
   }
 
+  getUserDetails(token) {
+    let header : Headers = new Headers();
+    header.append('Authorization','Bearer ' + token);
+
+    return this.http.post(environment.wordpressUrl 
+        + '/wp-json/wp/v2/users/me?token=' 
+        + token,
+      {}, {headers: header});
+  }
+
   register(user_data, token){
     let header : Headers = new Headers();
     header.append('Authorization','Bearer ' + token);
@@ -50,7 +60,7 @@ export class WooUserService {
 
   loadUserInfo(user) {
     return this.http.get(
-      environment.woocommerceUrl + 'customers/' + user.email);
+      environment.woocommerceUrl + 'customers/' + user.id);
   }
 
   logout(){

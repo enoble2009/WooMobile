@@ -5,13 +5,62 @@
 </ion-header>
 
 <ion-content>
+  
+  <ion-list>
+    <ion-item *ngFor="let item of currentCart.products | keyvalue">
+      <ion-img [src]="item.value.image" slot="start"></ion-img>
+      {{item.value.name}}
+      <div class="item-quantity" slot="end">
+        <p class="quantity-value" *ngIf="item.value.quantity > 0">{{item.value.quantity == 0? "": item.value.quantity}}</p>
+        <p class="price-value" *ngIf="item.value.quantity > 0">${{item.value.quantity == 0? "": item.value.quantity*item.value.price}}</p>
+      </div>
+    </ion-item>
+    <ion-item>
+      TOTAL
+      <div class="item-quantity" slot="end">
+        <p class="price-value">${{currentCart.cartTotal}}</p>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input disabled [(ngModel)]="userInfo.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Apellido</ion-label>
+      <ion-input disabled [(ngModel)]="userInfo.lastname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Address</ion-label>
+      <ion-input disabled [(ngModel)]="userInfo.address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>City</ion-label>
+      <ion-input disabled [(ngModel)]="userInfo.city"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>State</ion-label>
+      <ion-input disabled [(ngModel)]="userInfo.state"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>PostCode</ion-label>
+      <ion-input disabled [(ngModel)]="userInfo.postcode"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Country</ion-label>
+      <ion-input disabled [(ngModel)]="userInfo.country"></ion-input>
+    </ion-item>
+  </ion-list>
+
 	<div>
-	  <ion-button class="confirm" shape="round" (click)="finalConfirmation()">
+	  <ion-button class="confirm" (click)="finalConfirmation()">
 	    Confirmar compra
 	  </ion-button>
 	</div>
 
-  <ion-button class="cancel-final" shape="round" (click)="cancelConfirm()">
+  <ion-button class="cancel-final" (click)="cancelConfirm()">
     <ion-icon name="arrow-back"></ion-icon>
   </ion-button>
 

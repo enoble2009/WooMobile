@@ -48,7 +48,7 @@ export class AppComponent {
         data => {
           wooUserService.validateLogin(data.token)
           .subscribe(
-            res => this.router.navigateByUrl('home'),
+            res => this.router.navigateByUrl(data.id? 'home': 'login'),
             err => this.router.navigateByUrl('login')
           )
         },

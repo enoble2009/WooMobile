@@ -56,6 +56,7 @@ export class ListPage implements OnInit {
     const addedCategories = new Set();
     this.wooProductsService.getProducts().subscribe(
       res => {
+        var currentCart = this.cartHandler.loadCart();
         this.items.splice(0);
         for (var i = 0; i < res.json().length; i++) {
           const cats = new Set();
@@ -70,11 +71,11 @@ export class ListPage implements OnInit {
           this.items.push({
             id: obj.id, name: obj.name, slug: obj.slug, 
             image: obj.images.length == 0? "": obj.images[0].src, 
-            quantity: 0, price: obj.price, categories: cats,
+            quantity: currentCart && currentCart.products[obj.id]? currentCart.products[obj.id].quantity: 0, price: obj.price, categories: cats,
             showFlag: true
           });
         }
-        console.log(this.items);
+        this.recalculateTotal();
       },
       err => {
         console.log(err);

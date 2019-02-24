@@ -19,8 +19,9 @@ export class ConfirmUserinfoPage implements OnInit {
 			  	this.wooUserService.loadUserInfo(data).subscribe(
 			      res => {
 			      	this.userInfo = {
-			      		name: res.json().first_name,
-			      		lastname: res.json().last_name,
+			      		id: data.id,
+			      		name: res.json().shipping.first_name,
+			      		lastname: res.json().shipping.last_name,
 			      		address: res.json().shipping.address_1,
 			      		city: res.json().shipping.city,
 			      		state: res.json().shipping.state,

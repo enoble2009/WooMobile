@@ -13,6 +13,10 @@ export class CartHandlerService {
   	this.initCart();
   }
 
+  cleanCart() {
+    this.initCart();
+  }
+
   initCart() {
   	this.nativeStorage.getItem('cart').then(
         data => {

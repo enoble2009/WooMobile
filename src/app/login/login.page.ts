@@ -43,13 +43,21 @@ export class LoginPage implements OnInit {
 	login(value) {
 		this.wooUserService.login(value.username, value.password)
 		.subscribe(res => {
-       this.wooUserService.setUser({
-         token: res.json().token,
-         username: value.username,
-         displayname: res.json().user_display_name,
-         email: res.json().user_email
-       });
-       this.router.navigateByUrl('home');
+      this.wooUserService.getUserDetails(res.json().token)
+        .subscribe(res2 => {
+           this.wooUserService.setUser({
+             token: res.json().token,
+             username: value.username,
+             displayname: res.json().user_display_name,
+             email: res.json().user_email,
+             id: res2.json().id
+           });
+           this.router.navigateByUrl('home');
+         },
+         err => {
+           this.error_message = "Invalid credentials.";
+           console.log(err);
+         });
      },
      err => {
        this.error_message = "Invalid credentials.";

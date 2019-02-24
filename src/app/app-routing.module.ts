@@ -18,7 +18,9 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'confirm-cart', loadChildren: './confirm-cart/confirm-cart.module#ConfirmCartPageModule' },
-  { path: 'confirm-userinfo', loadChildren: './confirm-userinfo/confirm-userinfo.module#ConfirmUserinfoPageModule' },  { path: 'final-confirmation', loadChildren: './final-confirmation/final-confirmation.module#FinalConfirmationPageModule' }
+  { path: 'confirm-userinfo', loadChildren: './confirm-userinfo/confirm-userinfo.module#ConfirmUserinfoPageModule' },
+  { path: 'final-confirmation', loadChildren: './final-confirmation/final-confirmation.module#FinalConfirmationPageModule' },
+  { path: 'buy-success', loadChildren: './buy-success/buy-success.module#BuySuccessPageModule'}
 
 
 ];
