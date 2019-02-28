@@ -13,4 +13,4 @@ define('JWT_AUTH_SECRET_KEY', 'woomobile-key');
 SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
 RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
-* 
+* woo-server-index.js needs to be configured and run using node.js. This will enabled woocommerce communication.
